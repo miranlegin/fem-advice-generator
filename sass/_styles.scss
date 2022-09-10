@@ -1,1 +1,112 @@
-// general styling
+body {
+  display: grid;
+  place-items: center;
+  font-weight: $fw-700;
+  font-family: $ff-base;
+  background-color: $dark-blue;
+}
+
+main {
+  width: Min(540px, calc(100% - 2rem));
+  margin-block: auto;
+}
+
+.card {
+  background-color: $grayish-dark;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 3rem;
+  box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 0.6875rem;
+  color: $neon-green;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+
+  @media (min-width: 600px) {
+    font-size: 0.875rem;
+  }
+}
+
+.number {
+  .fetching & {
+    animation: reveal 1.4s;
+  }
+}
+
+q {
+  font-size: 1.35rem;
+  color: $light-cyan;
+
+  @media (min-width: 600px) {
+    font-size: $fs-base;
+  }
+
+  .fetching & {
+    animation: reveal 1.5s ease-out;
+  }
+}
+
+.divider {
+  margin-block: 2rem 1rem;
+}
+
+button {
+  display: block;
+  margin-inline: auto;
+  border: 0;
+  border-radius: 50%;
+  padding: 1.25rem;
+  background-color: $neon-green;
+  translate: 0 -50%;
+  cursor: pointer;
+  box-shadow: none;
+
+  .fetching & {
+    pointer-events: none;
+  }
+
+  img {
+    pointer-events: none;
+
+    .fetching & {
+      transition: 1s ease-out;
+      rotate: 2turn;
+    }
+  }
+
+  &:hover {
+    animation: pulsate 1.75s both infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    box-shadow: 0 0 0.25rem rgba($neon-green, 1);
+  }
+
+  75% {
+    box-shadow: 0 0 6rem rgba($neon-green, 0);
+  }
+
+  100% {
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
