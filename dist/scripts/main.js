@@ -6,7 +6,7 @@ const getAdvice = document.querySelector('.get-advice');
 const url = 'https://api.adviceslip.com/advice';
 
 const getData = async () => {
-  const response = await fetch(url);
+  const response = await fetch(url, { cache: 'no-cache' });
   const data = await response.json();
 
   body.classList.add('fetching');
@@ -19,5 +19,5 @@ const getData = async () => {
   advice.textContent = data.slip.advice;
 };
 
-window.addEventListener('load', getData);
+window.addEventListener('DOMContentLoaded', getData);
 getAdvice.addEventListener('click', getData);
